@@ -11,6 +11,9 @@ public class PasswordMeterTest {
         PasswordMeter meter = new PasswordMeter();
         PasswordStrength strength = meter.meter("ab12!@AB");
         assertThat(strength).isEqualTo(PasswordStrength.STRONG);
+
+        PasswordStrength strength_2 = meter.meter("abc1!@Add");
+        assertThat(strength).isEqualTo(PasswordStrength.STRONG);
     }
 
 
