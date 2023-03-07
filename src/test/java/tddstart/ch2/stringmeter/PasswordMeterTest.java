@@ -25,4 +25,12 @@ public class PasswordMeterTest {
         PasswordStrength strength_2 = meter.meter("Ab12!c");
         assertThat(strength_2).isEqualTo(PasswordStrength.NORMAL);
     }
+
+    @Test
+    void containsCapitalAndLongerThanEight_Then_Normal() {
+        PasswordMeter meter = new PasswordMeter();
+        PasswordStrength strength = meter.meter("ab!@ABqwer");
+        assertThat(strength).isEqualTo(PasswordStrength.NORMAL);
+
+    }
 }
