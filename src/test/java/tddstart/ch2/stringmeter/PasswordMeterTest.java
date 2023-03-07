@@ -16,5 +16,13 @@ public class PasswordMeterTest {
         assertThat(strength).isEqualTo(PasswordStrength.STRONG);
     }
 
+    @Test
+    void containsNumberAndCapitalLetter_Then_Normal() {
+        PasswordMeter meter = new PasswordMeter();
+        PasswordStrength strength = meter.meter("ab12!@A");
+        assertThat(strength).isEqualTo(PasswordStrength.NORMAL);
+
+    }
+
 
 }
