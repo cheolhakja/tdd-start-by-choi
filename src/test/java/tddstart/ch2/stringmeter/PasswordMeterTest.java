@@ -36,4 +36,9 @@ public class PasswordMeterTest {
         checkStrength("ab!@ABqwer", PasswordStrength.NORMAL);
 
     }
+
+    @Test
+    void inputNull_Then_Invalid() {
+        checkStrength(null, PasswordStrength.INVALID);
+    }
 }
