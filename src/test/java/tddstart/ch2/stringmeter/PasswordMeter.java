@@ -3,6 +3,9 @@ package tddstart.ch2.stringmeter;
 public class PasswordMeter {
 
     public PasswordStrength meter(String s) {
+        if(s == null) {
+            return PasswordStrength.INVALID;
+        }
         if(containsNumber(s) == false) {
             return PasswordStrength.NORMAL;
         }
