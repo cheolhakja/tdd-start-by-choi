@@ -6,6 +6,11 @@ public class PasswordMeter {
         if(s == null) {
             return PasswordStrength.INVALID;
         }
+
+        if(s.isEmpty()) {
+            return PasswordStrength.INVALID;
+        }
+
         if(containsNumber(s) == false) {
             return PasswordStrength.NORMAL;
         }
