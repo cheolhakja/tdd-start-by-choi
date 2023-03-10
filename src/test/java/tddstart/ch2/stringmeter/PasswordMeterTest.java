@@ -41,4 +41,9 @@ public class PasswordMeterTest {
     void inputNull_Then_Invalid() {
         checkStrength(null, PasswordStrength.INVALID);
     }
+
+    @Test
+    void inputEmptyString_Then_Invalid() {
+        checkStrength("", PasswordStrength.INVALID);
+    }
 }
