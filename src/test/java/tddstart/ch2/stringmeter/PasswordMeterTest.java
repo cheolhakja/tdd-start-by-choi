@@ -6,6 +6,11 @@ import org.junit.jupiter.api.Test;
 
 public class PasswordMeterTest {
 
+    private void checkStrength(String passwordThatWillBeChecked, PasswordStrength expectedStrength) {
+        PasswordMeter meter = new PasswordMeter();
+        PasswordStrength strength = meter.meter(passwordThatWillBeChecked);
+        assertThat(strength).isEqualTo(expectedStrength);
+    }
     @Test
     void meetsAllConditions_Then_Strong() {
         PasswordMeter meter = new PasswordMeter();
@@ -28,9 +33,7 @@ public class PasswordMeterTest {
 
     @Test
     void containsCapitalAndLongerThanEight_Then_Normal() {
-        PasswordMeter meter = new PasswordMeter();
-        PasswordStrength strength = meter.meter("ab!@ABqwer");
-        assertThat(strength).isEqualTo(PasswordStrength.NORMAL);
+        checkStrength("ab!@ABqwer", PasswordStrength.NORMAL);
 
     }
 }
